@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:34:50 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 19:34:51 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 20:25:58 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_fork	*create_forks(int number_of_forks)
 		return (malloc_error());
 	while (i < number_of_forks)
 	{
-		forks[i].available = YES;
+		forks[i].available = 1;
 		pthread_mutex_init(&(forks[i].lock), NULL);
 		i++;
 	}
@@ -55,18 +55,18 @@ void	philo_takes_forks(int nbr, long long starting_time, t_args *philo)
 		pthread_mutex_lock(&(philo->right_fork->lock));
 		pthread_mutex_lock(&(philo->left_fork->lock));
 	}
-	philo->left_fork->available = NO;
-	philo->right_fork->available = NO;
+	philo->left_fork->available = 0;
+	philo->right_fork->available = 0;
 	time = time_now() - starting_time;
-	print_action(time, nbr, "has taken a fork", philo->data);
+	print_action(time, nbr, "\033[0;33m has taken a fork", philo->data);
 	time = time_now() - starting_time;
-	print_action(time, nbr, "has taken a fork", philo->data);
+	print_action(time, nbr, "\033[0;36m has taken a fork", philo->data);
 }
 
 void	philo_drops_forks(t_args *philo)
 {
-	philo->left_fork->available = YES;
-	philo->right_fork->available = YES;
+	philo->left_fork->available = 1;
+	philo->right_fork->available = 1;
 	pthread_mutex_unlock(&(philo->left_fork->lock));
 	pthread_mutex_unlock(&(philo->right_fork->lock));
 }

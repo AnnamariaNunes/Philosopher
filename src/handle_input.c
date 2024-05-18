@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:34:56 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 19:34:57 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 20:10:34 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 static int	input_error(char *str, char *error)
 {
-	printf("%sinvalid argument: %s: %s%s\n", RED, str, error, RESET);
+	printf("\033[1;30m %sinvalid argument: %s: %s%s\n", RED, str, error, RESET);
 	return (NOT_VALID);
 }
 
 static void	print_input_error_message(void)
 {
-	printf("%sInvalid number of arguments. Run:\n%s", RED, BLUE);
+	printf("\033[1;31m %sInvalid number of arguments. Run:\n%s", RED, BLUE);
 	printf("./philo [nbr_of_philosophers] [time_to_die] [time_eating] "
 		"[time_sleeping] [nbr_of_times_each_philosopher_must_eat](optional)\n");
 	printf(RESET);
@@ -38,7 +38,7 @@ static int	check_valid_number(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (input_error(str, "must be a positive integer"));
+			return (input_error(str, "\033[1;32m must be a positive integer"));
 		i++;
 	}
 	nb = ft_atol(str);

@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:35:33 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:36 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 20:32:41 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 // simulation status
 # define STOP 0
 
-// fork available
-# define NO 0
-# define YES 1
-
 // handle input
 # define OK 0
 # define FAILED 1
@@ -33,10 +29,6 @@
 # define NOT_VALID 0
 # define E_INVAL 22
 # define INT_MAX 2147483647
-
-# define RED "\033[38;2;222;56;43m"
-# define BLUE "\033[38;2;34;183;235m"
-# define RESET "\033[0m"
 
 typedef struct s_time
 {

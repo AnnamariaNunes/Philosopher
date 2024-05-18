@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:35:09 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:10 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 20:24:36 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	*only_one_philo_routine(void *args)
 
 	philo = (t_args *)args;
 	pthread_mutex_lock(&(philo->right_fork->lock));
-	philo->right_fork->available = NO;
+	philo->right_fork->available = 0;
 	delta_time = get_delta_time(philo->data->starting_time);
-	print_action(delta_time, philo->nbr, "has taken a fork", philo->data);
+	print_action(delta_time, philo->nbr, "\033[1;36m has taken a fork", philo->data);
 	time_wait(philo->data->time.to_die, philo->data->starting_time);
 	pthread_mutex_unlock(&(philo->right_fork->lock));
 	return (NULL);

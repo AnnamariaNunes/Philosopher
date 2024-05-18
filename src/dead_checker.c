@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:34:43 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 19:34:44 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 20:08:48 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	philo_dies(int philo, long long starting_time, t_data *data)
 
 	delta_time = get_delta_time(starting_time);
 	pthread_mutex_lock(&(data->lock_print));
-	printf("%-5lld %i %s\n", delta_time, philo, "died");
+	printf("%-5lld %i %s\n", delta_time, philo, "\033[0;31m died");
 	pthread_mutex_unlock(&(data->lock_print));
 }
 
