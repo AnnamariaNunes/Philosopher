@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:35:09 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 20:24:36 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 21:55:35 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	*routine(void *args)
 	philo = (t_args *)args;
 	if (philo->next_eat != 0)
 		usleep(philo->next_eat * 0.9 * 1000);
-	while (simulation(philo->data) != STOP)
+	while (simulation(philo->data) != 0)
 	{
 		if (!has_fork(philo->right_fork) || !has_fork(philo->left_fork))
 		{

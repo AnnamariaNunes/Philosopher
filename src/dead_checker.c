@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:34:43 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 20:08:48 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 21:49:15 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ void	simulation_monitoring(t_args *philos, t_data *data)
 	int			i;
 	long long	delta;
 
-	while (simulation(data) != STOP)
+	while (simulation(data) != 0)
 	{
 		i = 0;
 		while (i < data->nbr_of_philos)
 		{
-			if (simulation(data) == STOP)
+			if (simulation(data) == 0)
 				break ;
 			pthread_mutex_lock(&(philos[i].lock_philo));
 			delta = time_now() - philos[i].last_eat;
 			if (delta >= data->time.to_die)
 			{
 				pthread_mutex_lock(&(data->lock_data));
-				data->simulation = STOP;
+				data->simulation = 0;
 				pthread_mutex_unlock(&(data->lock_data));
 				usleep(100);
 				philo_dies(i + 1, data->starting_time, data);

@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:35:33 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 20:32:41 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 21:55:32 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include <stdlib.h> 
 # include <pthread.h> 
 # include <sys/time.h> 
-
-// simulation status
-# define STOP 0
 
 // handle input
 # define OK 0

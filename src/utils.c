@@ -6,7 +6,7 @@
 /*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 19:35:28 by annamarianu       #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:29 by annamarianu      ###   ########.fr       */
+/*   Updated: 2024/05/18 21:55:53 by annamarianu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	print_action(long long time, int philo, char *action, t_data *data)
 {
-	if (simulation(data) == STOP)
+	if (simulation(data) == 0)
 		return ;
 	pthread_mutex_lock(&(data->lock_print));
 	printf("%-5lld %i %s\n", time, philo, action);
@@ -34,7 +34,7 @@ int	simulation(t_data *data)
 
 void	set_simulation(t_data *data)
 {
-	if (simulation(data) != STOP)
+	if (simulation(data) != 0)
 	{
 		pthread_mutex_lock(&(data->lock_data));
 		data->simulation--;
